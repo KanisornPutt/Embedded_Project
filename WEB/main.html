@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script type="text/javascript" src="netpie.js"></script>
+    <title>Watering</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAV Start -->
+    <nav>
+        <div class="logo">
+            
+            <a href="#">Plant Monitoring System For Dust Filtering</a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Nav End -->
+
+    <!-- Banner Start -->
+    <section class="banner">
+        <div class="container">
+            <div class="container-img">
+                <img src=asset\water-plant-growth_700x.webp alt="">
+            </div>
+            <div class="container-text">
+                <h1>Welcome!!!</h1>
+                <p>With the growing dust density in Bangkok, we propose an innovative solution to naturally filter and reduce dust: planting more trees. This approach not only utilizes the rough surfaces of leaves to effectively capture dust particles but also enhances the city's greenery, creating a healthier and more vibrant urban environment.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Banner End -->
+
+    <!--Main Start -->
+    <main>
+        <div class="row">
+            <div class="data-block">
+                <h2 id="status">STATUS</h2>
+                <div class="button-block">
+                    <button id="my-button" class="my-button" onclick="toggleStatus()">off</button>
+                </div>
+            </div>
+            <div class="data-block">
+            </br>
+                <h2>TEMPERATURE</h2>
+                <div id="temp">0 &deg;C</div>
+            </br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="data-block">
+            </br>
+                <h2>HUMIDITY</h2>
+                <div id="humi">0 %</div>
+            </br>
+            </div>
+            <div class="data-block">
+            </br>
+                <h2>DUST</h2>
+                <div id="dust">0 %</div>
+            </br>
+            </div>
+        </br>
+        </div>
+        
+    </main>
+    <!-- Main End -->
+
+    <!-- Footer Start -->
+    <footer>
+        <p>Copyrigth 2024. Made by Phuttiwat</p>
+    </footer>
+    <!-- Footer End -->
+
+</body>
+</html>
