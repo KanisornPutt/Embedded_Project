@@ -5,6 +5,7 @@
 EspSoftwareSerial::UART StmSerial;
 int ddht = 14; //D5
 int relay = 12; //D6
+int pump = 4;
 String autopump = "off";
 float AP = 0.0f;
 String data = "";
@@ -13,6 +14,7 @@ String data = "";
 #define LED_PIN D0
 #define RELAY_PIN 12
 #define BUTTON_PIN 0
+#define PUMP_PIN 4 // D2
 
 DHT dht(ddht, DHTTYPE);
 
@@ -77,7 +79,7 @@ void setStatus(String status) {
   else if (status == "off") {
     digitalWrite(LED_PIN, LOW);
     digitalWrite(RELAY_PIN, LOW); //relay ปิด
-
+    digitalWrite(PUMP_PIN, LOW);
     autopump = "off";
     AP = 0.0f;
     Serial.println("OFF");
@@ -123,6 +125,7 @@ void ReadButton() {
 void setup() {
   pinMode(relay, OUTPUT);
   pinMode(LED_PIN, OUTPUT);
+  pinMode(pump, OUTPUT);
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   digitalWrite(relay, LOW); // relay ปิด
   Serial.begin(115200);
@@ -152,13 +155,13 @@ void loop() {
   }
   float h = dht.readHumidity();
   float t = dht.readTemperature();
-  // if (autopump == "on") {
-  //   if (h > 80) {
-  //     digitalWrite(relay, LOW); //เปิด
-  //   } else {
-  //     digitalWrite(relay, HIGH); //ปิด
-  //   }
-  // }
+  if (autopump == "on") {
+    if (h > 80) {
+      digitalWrite(PUMP_PIN, LOW); //ปิด
+    } else {
+      digitalWrite(PUMP_PIN, HIGH); //เปิด
+    }
+  }
 
   ReadSTM();
   ReadButton();
