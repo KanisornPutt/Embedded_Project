@@ -55,21 +55,23 @@ nav {
 }
 /* nav end */
 
-/* section start */
+/* banner start */
 .banner {
+    flex-wrap: wrap;
     position: relative; /* Set position to relative for absolute positioning */
-    display: flex;
+    display: flex; /* Use flexbox for vertical stacking */
     flex-direction: column;
     align-items: center;
     background-color: rgb(83, 102, 83);
-    text-align: center; /* Center align text */
-    height: 100%; /* Ensure the banner takes full height of section */
-}
+    text-align: center;
+    height: 100vh; /* Set height to 100vh for full viewport height */
+    margin-bottom: 25px;
+  }
 
 .container {
     display: grid;
     grid-template-columns: 1fr,1fr;
-    padding: 50px;
+    padding: 20px;
     background-color: rgb(83, 102, 83);
     align-items: center;
 }
@@ -77,19 +79,21 @@ nav {
 .container-img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    
     background-color: rgb(83, 102, 83);
     border-radius: 0%;
 }
 
 .container-img img {
-    max-width: 70%;
-    max-height: 50%;
+    max-width: 100%;
     height: auto;
+    max-height: auto; /* Adjust the value as needed */
+    margin-bottom: 10px;
     border-radius: 10%;
 }
 
 .container-text{
+    
     max-width: 100%;
     background-color: rgb(83, 102, 83);
     color: #ccc;
@@ -106,7 +110,7 @@ nav {
     max-width: 100%;
     text-align: center;
 }
-/* section end */
+/* banner end */
 
 /* main start */
 main {
@@ -184,3 +188,17 @@ footer p {
     background-color: #333;
 }
 /* footer end */
+
+@media only screen and (max-height: 650px) {
+    .banner {
+      flex-wrap: wrap; /* Allow banner content to wrap  */
+    }
+  
+    .container-img img {
+        max-height: 200px;
+    }
+  
+    .container-text {
+      font-size: 16px; /* Adjust text size for readability */
+    }
+  }

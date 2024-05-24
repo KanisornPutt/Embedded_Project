@@ -87,13 +87,3 @@ var mqttSend = function (topic,msg){
     message.destinationName = topic;
     client.send(message);
 }
-
-
-
-
-
-
-
-
-
-
